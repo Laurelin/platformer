@@ -13,6 +13,7 @@ var map;
 var tileset;
 var layer;
 var ball;
+var bodies;
 
 function create() {
 
@@ -28,8 +29,9 @@ function create() {
 	
 	map.setCollisionBetween(0, 4)
 	
-	this.physics.p2.convertTilemap(map, layer);
+	bodies = this.physics.p2.convertTilemap(map, layer);
 	
+	bodies[2].body.setMaterial(woodMaterial);
 	
 }
 
