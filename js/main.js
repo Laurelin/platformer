@@ -31,7 +31,8 @@ function create() {
 	
 	bodies = this.physics.p2.convertTilemap(map, layer);
 	
-	ball = this.add.sprite(20, 20, 'ball');
+	ball = this.add.sprite(50, 20, 'ball');
+	this.physics.p2.enable(ball);
 	
 }
 
