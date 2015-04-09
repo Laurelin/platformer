@@ -14,6 +14,7 @@ var tileset;
 var layer;
 var ball;
 var bodies;
+var thrust = 10000;
 
 function create() {
 
@@ -34,11 +35,56 @@ function create() {
 	this.physics.p2.restitution = 0.5;
     this.physics.p2.gravity.y = 300;
 	
-	ball = this.add.sprite(20, 50, 'ball');
+	ball = this.add.sprite(130, 30, 'ball');
 	this.physics.p2.enable(ball);
+	ball.body.setCircle(37);
 	
+	
+	cursors = game.input.keyboard.createCursorKeys();
+	game.input.onDown.add(click, this);
+}
+
+function click(pointer){
+	
+	var x = distance(ball, pointer);
+	var angle = angleOf(ball, pointer);
+	
+	ball.body.force.x = Math.cos(angle)*thrust;
+	ball.body.force.x = Math.sin(angle)*thrust;
+}
+
+function distance(sprite, pointer){
+	
+		var s = Math.sqrt(Math.pow((pointer.x - sprite.x), 2)+ Math.pow(pointer.y - sprite.y, 2));
+
+		
+		return s;
+	
+	}
+	
+function angleOf(sprite, pointer){
+		var ang = Math.atan2( sprite.y - pointer.y, sprite.x - pointer.x);
+		return ang;
 }
 
 function update() {
+	
+	if (cursors.up.isDown)
+    {
+        this.camera.y -= 4;
+    }
+    else if (cursors.down.isDown)
+    {
+        this.camera.y += 4;
+    }
+
+    if (cursors.left.isDown)
+    {
+        this.camera.x -= 4;
+    }
+    else if (cursors.right.isDown)
+    {
+        this.camera.x += 4;
+    }
 	
 }
