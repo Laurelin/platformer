@@ -6,6 +6,7 @@ function preload() {
     game.load.image('bg', 'assets/background.png');
     game.load.image('ball', 'assets/playerball.png');
 	game.load.image('tiles', 'assets/tiles.png');
+	game.load.image('glass', 'assets/glass.png');
 	game.load.audio('music', 'assets/moon hooch 9.ogg');
 
 }
@@ -43,15 +44,13 @@ function create() {
 	ball.body.setCircle(37);
 	
 	
-	
-	
 	var ballMaterial = game.physics.p2.createMaterial('ballMaterial', ball.body);
 	var rubberMaterial = game.physics.p2.createMaterial('rubberMaterial', bodies[0].body);
 	
 	game.physics.p2.setMaterial(rubberMaterial, bodies[4], bodies[10]);
 	
 	rubberMaterial.friction = 0.5;
-	rubberMaterial.restitution = 1.5;
+	rubberMaterial.restitution = 1.5;	//bounciness
 	rubberMaterial.stiffness = 1e7;    // Stiffness of the resulting rubberEquation that this rubberMaterial generate.
     rubberMaterial.relaxation = 3;     // Relaxation of the resulting rubberEquation that this rubberMaterial generate.
     rubberMaterial.frictionStiffness = 1e7;    // Stiffness of the resulting FrictionEquation that this rubberMaterial generate.
