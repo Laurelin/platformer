@@ -16,15 +16,19 @@ var ball;
 
 function create() {
 
-	game.world.setBounds(0, 0, 1920, 960);
+	this.physics.startSystem(Phaser.Physics.P2JS);
+
+	this.world.setBounds(0, 0, 1920, 960);
     this.add.image(0, 0, 'bg');
 	map = this.add.tilemap('level1');
 	map.addTilesetImage('tiles');
 	
-	layer = map.createLayer('TileLayer');
+	layer = map.createLayer('Tile Layer 1');
 	
 	
 	map.setCollisionBetween(0, 4)
+	
+	this.physics.p2.convertTilemap(map, layer);
 	
 	
 }
