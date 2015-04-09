@@ -31,7 +31,7 @@ function create() {
 	
 	bodies = this.physics.p2.convertTilemap(map, layer);
 	
-	bodies[2].body.setMaterial(woodMaterial);
+	ball = this.add.sprite(20, 20, 'ball');
 	
 }
 
