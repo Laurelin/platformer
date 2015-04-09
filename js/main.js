@@ -7,7 +7,7 @@ function preload() {
     game.load.image('ball', 'assets/playerball.png');
 	game.load.image('tiles', 'assets/tiles.png');
 	game.load.image('glass', 'assets/glass.png');
-	game.load.audio('music', 'assets/moon hooch 9.ogg');
+	game.load.audio('music', 'assets/moonhooch9.ogg');
 
 }
 
