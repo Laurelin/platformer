@@ -31,7 +31,10 @@ function create() {
 	
 	bodies = this.physics.p2.convertTilemap(map, layer);
 	
-	ball = this.add.sprite(50, 20, 'ball');
+	this.physics.p2.restitution = 0.5;
+    this.physics.p2.gravity.y = 300;
+	
+	ball = this.add.sprite(20, 50, 'ball');
 	this.physics.p2.enable(ball);
 	
 }
