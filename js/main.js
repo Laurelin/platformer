@@ -16,12 +16,13 @@ var ball;
 
 function create() {
 
+	game.world.setBounds(0, 0, 1920, 960);
     this.add.image(0, 0, 'bg');
 	map = this.add.tilemap('level1');
 	map.addTilesetImage('tiles');
 	
 	layer = map.createLayer('TileLayer');
-	layer.resizeWorld();
+	
 	
 	map.setCollisionBetween(0, 4)
 	
